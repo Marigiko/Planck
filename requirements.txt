@@ -1,0 +1,8 @@
+flet
+qiskit
+scikit-learn
+numpy
+matplotlib
+pandas
+networkx
+scipy
