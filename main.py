@@ -19,11 +19,17 @@ import os
 
 matplotlib.use('svg')
 
+BACKGROUND_COLOR = "#FFFAEC"
+CARD_COLOR = "#F5ECD5"
+PRIMARY_COLOR = "#578E7E"
+TEXT_COLOR = "#3D3D3D"
+
 def main(page: ft.Page):
     # Configuración inicial de la página
-    page.title = "Planck.Quantum PoC"
+    page.title = "Planck"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.bgcolor = BACKGROUND_COLOR
     global data_scaled, labels
 
     # Variables iniciales
@@ -86,16 +92,20 @@ def main(page: ft.Page):
             error_message.update()
 
     # Vista de inicio de sesión
-    username_field = ft.TextField(label="Usuario o email", width=300)
-    password_field = ft.TextField(label="Contraseña", password=True, width=300)
+    username_field = ft.TextField(label="Usuario o email", width=300, bgcolor=TEXT_COLOR)
+    password_field = ft.TextField(label="Contraseña", password=True, width=300, bgcolor=TEXT_COLOR)
     error_message = ft.Text(value="", color="red")
 
     login_view = ft.Column(
         controls=[
-            ft.Text("Planck.Quantum", size=30, weight=ft.FontWeight.BOLD),
+            ft.Container(
+                content=ft.Image(src="logo.png", width=150, height=150),
+                alignment=ft.alignment.center,
+            ),
+            ft.Text("Planck", size=30, weight=ft.FontWeight.BOLD, color=TEXT_COLOR),
             username_field,
             password_field,
-            ft.ElevatedButton("Iniciar sesión", on_click=validate_login),
+            ft.ElevatedButton("Iniciar sesión", on_click=validate_login, bgcolor=PRIMARY_COLOR, color="white"),
             error_message,
         ],
         alignment=ft.MainAxisAlignment.CENTER,
@@ -176,7 +186,7 @@ def main(page: ft.Page):
                 ft.dropdown.Option("QAOA"),
                 ft.dropdown.Option("QSVM"),
                 ft.dropdown.Option("QPCA"),
-            ],
+            ]
         )
         qubits_field = ft.TextField(label="Cantidad de qubits", width=300)
         repeticiones_field = ft.TextField(label="Repeticiones", width=300)
@@ -427,5 +437,4 @@ def main(page: ft.Page):
     # Agregar la vista inicial a la página
     page.add(login_view)
 
-port = os.getenv("PORT", "8080")
-ft.app(target=main, view=ft.WEB_BROWSER, port=port)
+ft.app(target=main)
