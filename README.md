@@ -1,18 +1,75 @@
-Explicación General
-Carga de Datos y Preprocesamiento:
+# Planck - Next.js Implementation
 
-Se permite cargar un archivo CSV que se procesa para extraer las características (datos) y las etiquetas.
-Los datos se escalan usando StandardScaler.
-Interfaz de Usuario con Flet:
+Esta es una implementación web del proyecto Planck utilizando Next.js. El proyecto original se encuentra en [https://github.com/Marigiko/Planck](https://github.com/Marigiko/Planck).
 
-Se implementa una vista de login, una vista de configuración y vistas de resultados.
-La vista de configuración permite seleccionar entre tres tipos de "ansatz" cuánticos:
-QSVM: Utiliza un mapa de características cuántico (compuesto de puertas Hadamard y rotaciones Ry) para calcular un kernel cuántico y entrenar un clasificador SVM.
-QPCA: Convierte los datos clásicos a un formato cuántico (normalización) y aplica un circuito sencillo (puertas Ry) para obtener expectativas, a las que luego se les aplica PCA para reducir dimensiones.
-QAOA: Resuelve el problema de Max-Cut mediante un circuito QAOA, que alterna capas de operador de costo (basado en CNOT y Rz) y operador de mezcla (Rx), y se optimiza la función de costo con COBYLA.
-Ejecución de Tareas Cuánticas en Segundo Plano:
+## Descripción
 
-Las tareas pesadas se ejecutan en un hilo separado, mostrando una vista de carga mientras se procesan los cálculos.
-Visualización de Resultados:
+Planck es un sistema cuántico para mejorar conjuntos de datos y optimizar el tiempo de entrenamiento de redes neuronales. Esta implementación web proporciona una interfaz de usuario para interactuar con los algoritmos cuánticos del proyecto original.
 
-Dependiendo del circuito seleccionado, se muestran gráficos generados con matplotlib que ilustran los resultados (precisión en QSVM, reducción de dimensiones en QPCA, o parámetros y energía en QAOA).
+## Características
+
+- Interfaz de usuario moderna y responsive
+- Carga de datos CSV
+- Configuración de algoritmos cuánticos (QSVM, QPCA, QAOA)
+- Visualización de resultados con gráficos estadísticos
+- Benchmarks de rendimiento
+
+## Tecnologías utilizadas
+
+- Next.js 14
+- React
+- Tailwind CSS
+- shadcn/ui
+- Chart.js
+
+## Instrucciones para conectar con el repositorio original
+
+Para conectar esta implementación con el repositorio original y crear una rama "Next-Implementation", sigue estos pasos:
+
+1. Clona el repositorio original:
+\`\`\`bash
+git clone https://github.com/Marigiko/Planck.git
+cd Planck
+\`\`\`
+
+2. Crea una nueva rama llamada "Next-Implementation":
+\`\`\`bash
+git checkout -b Next-Implementation
+\`\`\`
+
+3. Copia todos los archivos de esta implementación web en la carpeta del repositorio clonado.
+
+4. Añade los archivos al staging:
+\`\`\`bash
+git add .
+\`\`\`
+
+5. Realiza un commit con los cambios:
+\`\`\`bash
+git commit -m "Add Next.js implementation"
+\`\`\`
+
+6. Sube la rama al repositorio remoto:
+\`\`\`bash
+git push origin Next-Implementation
+\`\`\`
+
+## Estructura del proyecto
+
+- `/app`: Páginas y rutas de la aplicación
+- `/components`: Componentes reutilizables
+- `/public`: Archivos estáticos
+
+## Desarrollo
+
+1. Instala las dependencias:
+\`\`\`bash
+npm install
+\`\`\`
+
+2. Inicia el servidor de desarrollo:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
