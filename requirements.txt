@@ -6,3 +6,6 @@ matplotlib
 pandas
 networkx
 scipy
+qiskit_aer
+tequila-basic
+qulacs
