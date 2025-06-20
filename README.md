@@ -19,21 +19,22 @@ Dependiendo del circuito seleccionado, se muestran gráficos generados con matpl
 
 ```mermaid
 flowchart TD
-    %% Estilos personalizados
+    %% Custom styles
     classDef block fill:#ffffff,stroke:#94a3b8,stroke-width:2px,color:#0f172a,font-size:14px;
     classDef highlight fill:#d1fae5,stroke:#10b981,stroke-width:2px,color:#065f46,font-weight:bold;
 
-    %% Bloques
-    A[📥 **Entrada de Datos**<br><small>Sensores, Archivos, Sistemas</small>] --> B[🧠 **Procesamiento con IA**<br><small>Modelos Predictivos</small>]
-    B --> C[📊 **Resultados Generados**<br><small>Simulaciones, Recomendaciones</small>]
-    C --> D[🧑‍💻 **Interacción del Usuario**<br><small>Validaciones, Ajustes, Feedback</small>]
-    D --> E[🔁 **Retroalimentación**<br><small>Recolectada automáticamente</small>]
-    E --> F[📈 **Mejora del Modelo**<br><small>Entrenamiento Continuo</small>]
+    %% Blocks
+    A[📥 **Data Input**<br><small>Sensors, Files, Systems</small>] --> B[🧠 **AI Processing**<br><small>Predictive Models</small>]
+    B --> C[📊 **Generated Results**<br><small>Simulations, Recommendations</small>]
+    C --> D[🧑‍💻 **User Interaction**<br><small>Validations, Adjustments, Feedback</small>]
+    D --> E[🔁 **Feedback**<br><small>Automatically Collected</small>]
+    E --> F[📈 **Model Improvement**<br><small>Continuous Training</small>]
     F --> B
 
-    %% Bucle informativo
-    E -.->|🧪 Aprendizaje continuo| B
+    %% Informative loop
+    E -.->|🧪 Continuous Learning| B
 
-    %% Aplicación de estilos
+    %% Apply styles
     class A,B,C,D,E block;
     class F highlight;
+
